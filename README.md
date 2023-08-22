@@ -43,6 +43,75 @@ INSTALLED_APPS = [
 ]
 ```
 
-10. `url.py` => `views.py` => `templates`
+10. `url.py` => `views.py` => `templates/*.html` 순서로 코드 작성
 
 
+
+## Model
+
+1. 모델 정의 (`models.py`)
+    - 모델의 이름은 기본적으로 단수형태
+
+```python
+from django.db import models
+
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+```
+
+2. 번역본 생성
+```zsh
+python manage.py makemigrations
+```
+
+3. DB에 반열
+```zsh
+python manage.py migrate
+```
+
+4. SQL 스키마 확인
+```zsh
+python manage.py sqlmigrate posts 0001
+```
+
+5. 생성한 모델 admin에 등록
+```python
+from django.contrib import admin
+from .models import Post
+
+admin.site.register(Post)
+```
+
+6. 관리자 계정 생성
+```zsh
+python manage.py createsuperuser
+```
+
+
+## CRUD 로직 작성
+
+### 1. Read
+- 전체 게시물 출력
+```python
+
+``` 
+
+- 하나의 게시물 출력
+```python
+
+```
+
+
+### 2. Create
+- 사용자에게 입력할 수 있는 폼을 제공
+```python
+```
+
+- 사용자가 입력한 데이터를 가지고 DB에 저장하는 로직
+```python
+```
+
+### 3. Delete
+
+### 4. Update

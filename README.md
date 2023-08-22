@@ -35,5 +35,14 @@ python manage.py runserver
 django-admin startapp <app-name>
 ```
 
+9. 앱 등록 => `settings.py`
+```python
+INSTALLED_APPS = [
+    ...
+    <app_name>,
+]
+```
+
+10. `url.py` => `views.py` => `templates`
 
 
